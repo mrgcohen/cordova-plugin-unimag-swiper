@@ -55,6 +55,7 @@ Swiper.fireEvent = function (event, data) {
 };
 
 Swiper.on = function (event, callback, scope) {
+	window.removeEventListener(event, callback.find(scope || window));
 	window.addEventListener(event, callback.bind(scope || window));
 };
 
