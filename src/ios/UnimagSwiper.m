@@ -460,6 +460,8 @@ UmReader readerType;
                             error:&error]
                 encoding:NSUTF8StringEncoding];
         }
+    }else{
+        return data;
     }
     return nil;
 }
