@@ -461,7 +461,7 @@ UmReader readerType;
                 encoding:NSUTF8StringEncoding];
         }
     }else{
-        return [[NSString alloc] initWithData:data];
+        return [[NSString alloc] initWithString:data];
     }
     return nil;
 }
