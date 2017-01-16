@@ -461,7 +461,7 @@ UmReader readerType;
                 encoding:NSUTF8StringEncoding];
         }
     }else{
-        NSDictionary* cardData = [[NSDictionary alloc] initWithObjectsAndKeys: data, @"card_number", nil];
+        NSDictionary* cardData = [[NSDictionary alloc] initWithObjectsAndKeys: [data substringToIndex:[data length]-1], @"card_number", nil];
         return [[NSString alloc] initWithData:
                 [NSJSONSerialization dataWithJSONObject:cardData
                                                 options:0
