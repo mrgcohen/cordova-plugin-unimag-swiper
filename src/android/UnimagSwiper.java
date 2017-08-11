@@ -414,7 +414,7 @@ public class UnimagSwiper extends CordovaPlugin implements uniMagReaderMsg {
             fireEvent("swipe_success", card.toString()); 
         }else{
             fireEvent("swipe_success", new String(cardData));
-        } else fireEvent("swipe_error");
+        } //else fireEvent("swipe_error");
     }
 
     /**
