@@ -412,9 +412,9 @@ public class UnimagSwiper extends CordovaPlugin implements uniMagReaderMsg {
         JSONObject card = parseCardData(new String(cardData));
         if (card != null) {
             fireEvent("swipe_success", card.toString()); 
-        }else{
-            fireEvent("swipe_success", new String(cardData));
-        } //else fireEvent("swipe_error");
+        } else {
+            fireEvent("swipe_error");
+        }
     }
 
     /**
@@ -614,12 +614,11 @@ public class UnimagSwiper extends CordovaPlugin implements uniMagReaderMsg {
 
                 return cardData;
             } catch (JSONException e) {
-                try{
-                    JSONObject d = new JSONObject();
-                    d.put("card_number", data);
+                try {
+                    JSONObject d = new JSONObject();                    
+                    d.put("card_number", data.replaceAll("\\s",""));
                     return d;
-                }catch(JSONException ef){
-                    e.printStackTrace();
+                } catch (JSONException ef){
                     ef.printStackTrace();
                     return null;
                 }
