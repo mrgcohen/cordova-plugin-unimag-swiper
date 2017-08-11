@@ -602,7 +602,7 @@ public class UnimagSwiper extends CordovaPlugin implements uniMagReaderMsg {
             exp = mtchr.group(3);
         } 
 
-        if (num != null && name[0] != null && name[1] != null && exp != null) {
+        if (num != null && name[0] != null && name[1] != null && exp != null || data.length) {
             try {
                 JSONObject cardData = new JSONObject();
                 cardData.put("card_number", num);
