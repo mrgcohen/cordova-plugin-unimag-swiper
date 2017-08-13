@@ -602,7 +602,7 @@ public class UnimagSwiper extends CordovaPlugin implements uniMagReaderMsg {
             exp = mtchr.group(3);
         } 
 
-        if (num != null && name[0] != null && name[1] != null && exp != null || data.length() > 0) {
+        if (num != null && name[0] != null && name[1] != null && exp != null) {
             try {
                 JSONObject cardData = new JSONObject();
                 cardData.put("card_number", num);
@@ -613,17 +613,22 @@ public class UnimagSwiper extends CordovaPlugin implements uniMagReaderMsg {
                 cardData.put("trimmedUnimagData", data.replaceAll("\\s",""));
 
                 return cardData;
-            } catch (JSONException e) {
-                try {
-                    JSONObject d = new JSONObject();                    
-                    d.put("card_number", data.replaceAll("\\s",""));
-                    return d;
-                } catch (JSONException ef){
-                    ef.printStackTrace();
-                    return null;
-                }
+            } catch (JSONException e) {                
+                e.printStackTrace();
+                return null;
             }
-        } else return null;
+        } else if(data.length() > 0){
+            try {
+                JSONObject d = new JSONObject();                    
+                d.put("card_number", data);
+                return d;
+            }catch(JSONException e){
+                e.printStackTrace();
+                return null;                
+            }
+        }else{
+            return null;
+        }
     }
 
     /**
