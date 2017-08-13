@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 import org.json.JSONObject;
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.apache.commons.lang.StringEscapeUtils
+import org.apache.commons.lang.StringEscapeUtils;
 
 import android.os.Build;
 import android.content.BroadcastReceiver;
