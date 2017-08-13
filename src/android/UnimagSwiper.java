@@ -9,7 +9,6 @@ import java.util.regex.Pattern;
 import org.json.JSONObject;
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.apache.commons.text.StringEscapeUtils;
 
 import android.os.Build;
 import android.content.BroadcastReceiver;
@@ -621,7 +620,7 @@ public class UnimagSwiper extends CordovaPlugin implements uniMagReaderMsg {
         } else if(data.length() > 0){
             try {
                 JSONObject d = new JSONObject();                    
-                d.put("card_number", StringEscapeUtils.escapeJson(d));
+                d.put("card_number", data.replaceAll("\\s", "");
                 return d;
             }catch(JSONException e){
                 e.printStackTrace();
