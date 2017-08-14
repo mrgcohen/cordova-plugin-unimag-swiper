@@ -620,7 +620,7 @@ public class UnimagSwiper extends CordovaPlugin implements uniMagReaderMsg {
         } else if(data.length() > 0){
             try {
                 JSONObject d = new JSONObject();                    
-                d.put("card_number", data.replaceAll("\\s", ""));
+                d.put("card_number", data.replaceAll("\\s*", ""));
                 return d;
             }catch(JSONException e){
                 e.printStackTrace();
