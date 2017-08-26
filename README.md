@@ -42,6 +42,19 @@ A list of officially supported devices can be found <a href="http://www.idtechpr
 
 To run auto config through this plugin, just call the __autoConfig__ method on your plugin object. It won't work while a reader is unplugged or swipe mode is in progress. An __"autoconfig_completed"__ event will be fired if the process finishes, otherwise an __"autoconfig_error"__ or __"xml_error"__ event will be fired instead. 
 
+## *.plist Updates
+
+Remember this requires the use of the microphone if using shuttle so don't forget a usage description.
+
+For: `NSMicrophoneUsageDescription`
+
+Entry
+```xml
+<key>NSMicrophoneUsageDescription</key>
+<string>Need microphone access for uploading videos</string>
+```
+
+
 ## Events
 See Sample section for how exactly to capture the events listed below.
 
